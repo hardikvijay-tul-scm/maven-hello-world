@@ -22,7 +22,7 @@ pipeline{
                     nexusArtifactUploader artifacts: [
                         [artifactId: 'code_promo', 
                          classifier: '', 
-                         file: '..\\maven-try\\target\\MyWebApp.war', type: 'war']
+                         file: '..\\target\\MyWebApp.war', type: 'war']
                         ],
                         credentialsId: 'nexus3', 
                         groupId: 'code_promo', 
