@@ -19,21 +19,18 @@ pipeline{
         }
         stage('Upload War to Nexus') {
             steps {
-                 nexusArtifactUploader artifacts: [
-                     [
-                         artifactId: 'code_promo',
+                    nexusArtifactUploader artifacts: [
+                        [artifactId: 'code_promo', 
                          classifier: '', 
-                         file: 'target\MyWebApp.war', 
-                         type: 'war'
-                    ]
-                ], 
-                credentialsId: 'nexus3',
-                groupId: 'in.javahome',
-                nexusUrl: 'new.nexusrepocodeprom.pagekite.me',
-                nexusVersion: 'nexus3',
-                protocol: 'http',
-                repository: 'code-promo', 
-                version: '1.0.0'
+                         file: '..\\maven-try\\target\\MyWebApp.war', type: 'war']
+                        ],
+                        credentialsId: 'nexus3', 
+                        groupId: 'code_promo', 
+                        nexusUrl: 'localhost:8081', 
+                        nexusVersion: 'nexus3', 
+                        protocol: 'http', 
+                        repository: 'code_promo', 
+                        version: '1.0.0'
             }
         }
     }
