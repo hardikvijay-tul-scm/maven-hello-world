@@ -3,6 +3,7 @@ pipeline{
 
     tools {
          maven 'maven3'
+        java 'JAVA_HOME'
     }
 
     stages{
