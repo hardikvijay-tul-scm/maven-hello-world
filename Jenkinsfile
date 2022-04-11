@@ -17,5 +17,24 @@ pipeline{
                bat 'mvn package'
             }
         }
+        stage('Upload War to Nexus') {
+            steps {
+                 nexusArtifactUploader artifacts: [
+                     [
+                         artifactId: 'code_promo',
+                         classifier: '', 
+                         file: 'target\MyWebApp.war', 
+                         type: 'war'
+                    ]
+                ], 
+                credentialsId: 'nexus3',
+                groupId: 'in.javahome',
+                nexusUrl: 'new.nexusrepocodeprom.pagekite.me',
+                nexusVersion: 'nexus3',
+                protocol: 'http',
+                repository: 'code-promo', 
+                version: '1.0.0'
+            }
+        }
     }
 }
